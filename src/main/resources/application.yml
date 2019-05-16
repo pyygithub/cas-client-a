@@ -1,0 +1,26 @@
+
+logging:
+  level:
+    com.thtf.casclienta: debug
+
+# cas客户端配置
+cas:
+  # cas服务端前缀
+  server-url-prefix: http://localhost:8443/cas
+  # cas的登录地址
+  server-login-url: http://localhost:8443/cas/login
+  # 当前客户端的地址
+  client-host-url: http://localhost:8080
+  # Ticket校验器使用Cas30ProxyReceivingTicketValidationFilter
+  validation-type: cas3
+  authentication-url-patterns: /*
+  validation-url-patterns: /*
+  use-session: true
+  redirect-after-validation: false
+
+
+##### 不需要认证地址
+ignore-pattern:
+  paths: /js/*|/images/*|/view/*|/css/*|/logout/*
+ignore-url-pattern-type: com.thtf.casclienta.config.SimpleUrlPatternMatcherStrategy
+
